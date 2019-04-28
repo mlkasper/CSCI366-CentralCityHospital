@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,20 +75,258 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Admin\Manage.aspx" />
+    <Content Include="Admin\Register.aspx" />
+    <Content Include="Admin\RegisterSuccess.aspx" />
+    <Content Include="Admin\SendAnnouncment.aspx" />
+    <Content Include="App_Data\HospitalDB.mdf" />
+    <Content Include="App_Data\HospitalDB_log.ldf">
+      <DependentUpon>HospitalDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="css\login.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="DoctorNurse\Appointments.aspx" />
+    <Content Include="DoctorNurse\CreateAppointment.aspx" />
+    <Content Include="DoctorNurse\Default.aspx" />
+    <Content Include="favicon\android-icon-144x144.png" />
+    <Content Include="favicon\android-icon-192x192.png" />
+    <Content Include="favicon\android-icon-36x36.png" />
+    <Content Include="favicon\android-icon-48x48.png" />
+    <Content Include="favicon\android-icon-72x72.png" />
+    <Content Include="favicon\android-icon-96x96.png" />
+    <Content Include="favicon\apple-icon-114x114.png" />
+    <Content Include="favicon\apple-icon-120x120.png" />
+    <Content Include="favicon\apple-icon-144x144.png" />
+    <Content Include="favicon\apple-icon-152x152.png" />
+    <Content Include="favicon\apple-icon-180x180.png" />
+    <Content Include="favicon\apple-icon-57x57.png" />
+    <Content Include="favicon\apple-icon-60x60.png" />
+    <Content Include="favicon\apple-icon-72x72.png" />
+    <Content Include="favicon\apple-icon-76x76.png" />
+    <Content Include="favicon\apple-icon-precomposed.png" />
+    <Content Include="favicon\apple-icon.png" />
+    <Content Include="favicon\browserconfig.xml" />
+    <Content Include="favicon\favicon-16x16.png" />
+    <Content Include="favicon\favicon-32x32.png" />
+    <Content Include="favicon\favicon-96x96.png" />
+    <Content Include="favicon\favicon.ico" />
+    <Content Include="favicon\ms-icon-144x144.png" />
+    <Content Include="favicon\ms-icon-150x150.png" />
+    <Content Include="favicon\ms-icon-310x310.png" />
+    <Content Include="favicon\ms-icon-70x70.png" />
+    <Content Include="HospitalDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalDB.edmx</DependentUpon>
+      <LastGenOutput>HospitalDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HospitalDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospitalDB.edmx</DependentUpon>
+      <LastGenOutput>HospitalDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-144x144.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-192x192.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-36x36.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-48x48.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-72x72.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\android-icon-96x96.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-114x114.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-120x120.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-144x144.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-152x152.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-180x180.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-57x57.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-60x60.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-72x72.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-76x76.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon-precomposed.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\apple-icon.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\browserconfig.xml" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\favicon-16x16.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\favicon-32x32.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\favicon-96x96.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\favicon.ico" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\ms-icon-144x144.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\ms-icon-150x150.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\ms-icon-310x310.png" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\ms-icon-70x70.png" />
+    <Content Include="img\logo.svg" />
+    <Content Include="img\medicine.png" />
+    <Content Include="img\medicine.svg" />
+    <Content Include="Default.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Reception\CreateAppointment.aspx" />
+    <Content Include="Reception\Edit.aspx" />
+    <Content Include="Reception\Default.aspx" />
+    <Content Include="Reception\EditingPage.aspx" />
+    <Content Include="Reception\Register.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RegisterSuccess.aspx.cs">
+      <DependentUpon>RegisterSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RegisterSuccess.aspx.designer.cs">
+      <DependentUpon>RegisterSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SendAnnouncment.aspx.cs">
+      <DependentUpon>SendAnnouncment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SendAnnouncment.aspx.designer.cs">
+      <DependentUpon>SendAnnouncment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnnouncmentTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorNurse\Appointments.aspx.cs">
+      <DependentUpon>Appointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorNurse\Appointments.aspx.designer.cs">
+      <DependentUpon>Appointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorNurse\CreateAppointment.aspx.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorNurse\CreateAppointment.aspx.designer.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorNurse\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorNurse\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\CreateAppointment.aspx.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\CreateAppointment.aspx.designer.cs">
+      <DependentUpon>CreateAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NurseTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PatientTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\EditingPage.aspx.cs">
+      <DependentUpon>EditingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\EditingPage.aspx.designer.cs">
+      <DependentUpon>EditingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserTable.cs">
+      <DependentUpon>HospitalDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon\manifest.json" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico.zip" />
+    <Content Include="img\358338711ac3fbc673e7b3d514314b70.ico\manifest.json" />
+    <Content Include="img\FileZilla_3.41.2_macosx-x86.app.tar.bz2" />
+    <Content Include="img\python-3.7.3-macosx10.9.pkg" />
+    <Content Include="Admin\Web.config" />
+    <EntityDeploy Include="HospitalDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HospitalDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="HospitalDB.edmx.diagram">
+      <DependentUpon>HospitalDB.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\HospitalRecords20190427103751 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
