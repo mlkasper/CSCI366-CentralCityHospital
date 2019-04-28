@@ -71,7 +71,6 @@ namespace HospitalRecords
                     }
                 }
             }
-            inputUsername.Value = Decrpyt(inputPassword.Value); 
         }
     }
 }
