@@ -35,13 +35,13 @@
 				<asp:GridView ID="doctorNurseGridview" runat="server"  class="table table-striped" AutoGenerateColumns="False" DataKeyNames="appointmentID" DataSourceID="DoctorNurseAppointmentGridview">
 					<Columns>
 						<asp:CommandField ShowEditButton="True" />
-						<asp:BoundField DataField="appointmentID" HeaderText="appointmentID" InsertVisible="False" ReadOnly="True" SortExpression="appointmentID" />
-						<asp:BoundField DataField="patientName" HeaderText="patientName" SortExpression="patientName" ReadOnly="True" />
-						<asp:BoundField DataField="appointmentReason" HeaderText="appointmentReason" SortExpression="appointmentReason" />
-						<asp:BoundField DataField="doctorName" HeaderText="doctorName" SortExpression="doctorName" />
-						<asp:BoundField DataField="nurseName" HeaderText="nurseName" SortExpression="nurseName" />
-						<asp:BoundField DataField="notes" HeaderText="notes" SortExpression="notes" />
-						<asp:BoundField DataField="appointmentDate" HeaderText="appointmentDate" SortExpression="appointmentDate" />
+						<asp:BoundField DataField="appointmentID" HeaderText="appointment ID" InsertVisible="False" ReadOnly="True" SortExpression="appointmentID" />
+						<asp:BoundField DataField="patientName" HeaderText="Patient Name" SortExpression="patientName" ReadOnly="True" />
+						<asp:BoundField DataField="appointmentReason" HeaderText="Appointment Reason" SortExpression="appointmentReason" />
+						<asp:BoundField DataField="doctorName" HeaderText="Doctor Name" SortExpression="doctorName" />
+						<asp:BoundField DataField="nurseName" HeaderText="Nurse Name" SortExpression="nurseName" />
+						<asp:BoundField DataField="notes" HeaderText="Notes" SortExpression="notes" />
+						<asp:BoundField DataField="appointmentDate" HeaderText="Date" SortExpression="appointmentDate" />
 					</Columns>
 				</asp:GridView>
 				<asp:SqlDataSource ID="DoctorNurseAppointmentGridview" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [AppointmentTable] WHERE [appointmentID] = @appointmentID" InsertCommand="INSERT INTO [AppointmentTable] ([patientName], [appointmentReason], [doctorName], [nurseName], [notes], [appointmentDate]) VALUES (@patientName, @appointmentReason, @doctorName, @nurseName, @notes, @appointmentDate)" SelectCommand="SELECT [appointmentID], [patientName], [appointmentReason], [doctorName], [nurseName], [notes], [appointmentDate] FROM [AppointmentTable]" UpdateCommand="UPDATE [AppointmentTable] SET [patientName] = @patientName, [appointmentReason] = @appointmentReason, [doctorName] = @doctorName, [nurseName] = @nurseName, [notes] = @notes, [appointmentDate] = @appointmentDate WHERE [appointmentID] = @appointmentID">
